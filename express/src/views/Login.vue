@@ -30,7 +30,15 @@ export default {
     },
     methods: {
         login() {
-            this.$router.push('/')
+            this.$axios.post('/login', this.formData).then(res => {
+                if(res.data.code === 200) {
+                    this.$store.dispatch('LOGIN', res.data);
+                    this.$router.push('/');
+                }
+            }).catch(error => {
+                console.log(error)
+                this.$message(error);
+            });
         },
         reset() {
             this.formData = {
