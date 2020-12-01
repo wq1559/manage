@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'login',
     data() {
@@ -32,7 +33,7 @@ export default {
         login() {
             this.$axios.post('/login', this.formData).then(res => {
                 if(res.data.code === 200) {
-                    this.$store.dispatch('LOGIN', res.data);
+                    this.$store.dispatch('userLogin', res.data);
                     this.$router.push('/');
                 }
             }).catch(error => {
