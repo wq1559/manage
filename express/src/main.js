@@ -32,13 +32,13 @@ instance.interceptors.response.use(function(config) {
 
 Vue.prototype.$axios = instance;
 
-router.beforeEach((to, from, next) => {
-  if(store.state.userInfo == '' && to.name !== 'Login'){
-    next('/login')
-  } else {
-    next();
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if(store.state.userInfo == '' && to.name !== 'Login'){
+//     next('/login')
+//   } else {
+//     next();
+//   }
+// })
 
 new Vue({
   router,
